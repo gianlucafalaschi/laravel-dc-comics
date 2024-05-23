@@ -3,9 +3,9 @@
 @section('content')
     <section>
         <div class="container">
-            <h1>Single comic</h1>
+            <h1 class="text-center mb-5">Single comic</h1>
             <div class="row">
-                <div class="col">
+                <div class="col d-flex justify-content-center">
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top" src="https://picsum.photos/id/237/200/300" alt="Card image cap">
                         <div class="card-body">
