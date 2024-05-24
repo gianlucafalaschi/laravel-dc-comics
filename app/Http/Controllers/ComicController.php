@@ -29,8 +29,8 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('comics.create');
+    {    /* create ha il solo compito di mostrare il form (che inviera' i dati allo store) */
+        return view('comics.create');    
     }
 
     /**
