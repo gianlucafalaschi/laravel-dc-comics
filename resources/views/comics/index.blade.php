@@ -14,7 +14,7 @@
                           <p class="card-text">{{$comic->description}}</p>
                         </div>
                         <ul class="list-group list-group-flush">
-                          <li class="list-group-item">{{$comic->price}} euro</li>
+                          <li class="list-group-item">{{$comic->price}} euro</li>  {{-- essendo  l'istanza di un oggetto devo usare la freccina, se fosse un array associativo sarebbe {{$comic['price']}}   --}}
                           <li class="list-group-item">{{$comic->series}}</li>
                           <li class="list-group-item">{{$comic->sale_date}}</li>
                           <li class="list-group-item">{{$comic->type}}</li>

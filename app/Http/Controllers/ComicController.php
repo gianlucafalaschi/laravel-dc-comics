@@ -14,13 +14,13 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics = Comic::all();
+        $comics = Comic::all();   // per prendere tutti i fumetti utilizzo il Model (che ho importato sopra )
 
         $data = [
             'comics' => $comics
         ];
         
-        return view('comics.index', $data);
+        return view('comics.index', $data);   // index si troca nella cartella comics. Con view devo usare la dot.notation
     }
 
     /**
@@ -66,13 +66,14 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-       $comic = Comic::find($id);
+       //$comic = Comic::find($id);    // per prendere il singolo fumetto uso il model e con find gli passo l'id
+       $comic = Comic::findOrFail($id);    // per prendere il singolo fumetto uso il model e con find gli passo l'id .  Con findOrFail invece di find se l'id non esiste mi da' in automatico la pagina con errore 404
 
        $data = [
             'comic' => $comic
        ];
         
-        return view('comics.show', $data);
+        return view('comics.show', $data); // show si trova nella cartella comics. Con view devo usare la dot.notation
         
     }
 
