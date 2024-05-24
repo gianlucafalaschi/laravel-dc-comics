@@ -17,4 +17,5 @@ use App\Http\Controllers\ComicController;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 
-Route::resource('comics', ComicController::class);
+// comics rappresenta l'url base che scegliamo.  Creami le rotte per gestire la risorsa che e' gestita nel ComicContoller. L'url base e' comics
+Route::resource('comics', ComicController::class);     

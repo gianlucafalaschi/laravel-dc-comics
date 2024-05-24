@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->text('thumb');
             $table->float('price', 8, 2);
-            $table->string('series', 200);
+            $table->string('series', 200);    // qui il tipo di dato dovrebbe essere decimal, perche' piu' preciso in caso di arrotondamenti
             $table->date('sale_date');
             $table->string('type', 100);
             $table->timestamps();
