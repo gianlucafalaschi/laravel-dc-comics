@@ -43,9 +43,9 @@ class ComicController extends Controller
     {
         $formData = $request->all();
         
-        // Creare nuova riga nel database
+        // Creare nuova riga nel database  quando l'utente invia il form
         $newComic = new Comic();
-        $newComic->title = $formData['title'];
+        $newComic->title = $formData['title'];  /* uso le parentesi quadre perchè ho un array associativo */
         $newComic->description = $formData['description'];
         $newComic->thumb = $formData['thumb'];
         $newComic->price = $formData['price'];
