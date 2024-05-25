@@ -20,7 +20,7 @@
                           <li class="list-group-item">{{$comic->type}}</li>
                         </ul>
                         <div class="card-body">
-                          <a href="#" class="card-link">Card link</a>
+                          <a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="card-link">Scopri di più</a>
                           <a href="#" class="card-link">Another link</a>
                         </div>
                     </div>
