@@ -3,6 +3,7 @@
 @section('content')
     <section>
         <div class="container">
+            <h1 class="mb-3">Crea un nuovo prodotto</h1>
             <form action="{{ route('comics.store') }}" method="POST">
                 @csrf   {{-- essenziale per inviare i dati in modo sicuro --}}
                 <div class="form-group mb-3">
