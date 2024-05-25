@@ -44,16 +44,24 @@ class ComicController extends Controller
         $formData = $request->all();
         
         // Creare nuova riga nel database  quando l'utente invia il form
-        $newComic = new Comic();
-        $newComic->title = $formData['title'];  /* uso le parentesi quadre perchè ho un array associativo */
-        $newComic->description = $formData['description'];
-        $newComic->thumb = $formData['thumb'];
-        $newComic->price = $formData['price'];
-        $newComic->series = $formData['series'];
-        $newComic->sale_date = $formData['sale_date'];
-        $newComic->type = $formData['type'];
-        $newComic->save();
         
+        $newComic = new Comic();
+        
+        //metodo senza mass assignment
+        
+        // $newComic->title = $formData['title'];  /* uso le parentesi quadre perchè ho un array associativo */
+        // $newComic->description = $formData['description'];
+        // $newComic->thumb = $formData['thumb'];
+        // $newComic->price = $formData['price'];
+        // $newComic->series = $formData['series'];
+        // $newComic->sale_date = $formData['sale_date'];
+        // $newComic->type = $formData['type'];
+        // $newComic->save();
+
+        /* metodo con mass assignment, le colonne vengono autorizzate nel model */
+        $newComic->fill($formData);
+        $newComic->save();
+
         // quando l'utente crea un nuovo comic, lo reindirizzo alla pagina del singolo comic aggiunto
         return redirect()->route('comics.show', ['comic' => $newComic->id]);
     }
