@@ -5,8 +5,10 @@
     <div class="container">
         <h1 class="mb-3">Modifica il prodotto: {{ $comic->title }}</h1>
         
-        <form action="{{ route('comics.store') }}" method="POST">
+        <form action="{{ route('comics.update', ['comic' => $comic->id]) }}" method="POST">
             @csrf   {{-- essenziale per inviare i dati in modo sicuro --}}
+            @method('PUT')   {{-- il method nella route list e' PUT, ma se non abbiamo un method GET dobbiamo sempre mettere sopra un method POST. Aggiungiamo PUT per inviare alla giusta route  --}}
+
             <div class="form-group mb-3">
               <label for="title">Titolo</label>
               <input type="text" class="form-control" id="title" name="title" value="{{ $comic->title }}">  {{-- il name e' quello che effettivamente mi compare nel backend --}}

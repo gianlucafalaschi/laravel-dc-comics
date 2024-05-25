@@ -112,8 +112,16 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        $comic = Comic::findOrFail($id);
+
+        $formData = $request->all();
+        
+        $comic->update($formData);
+        
+         // dopo aver aggiornato un elemento, mandiamo l'utente alla pagina dell'elemento aggiornato
+         return redirect()->route('comics.show', ['comic' => $comic->id]);
+
     }
 
     /**
