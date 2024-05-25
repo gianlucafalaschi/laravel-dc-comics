@@ -20,7 +20,7 @@ class ComicController extends Controller
             'comics' => $comics
         ];
         
-        return view('comics.index', $data);   // index si troca nella cartella comics. Con view devo usare la dot.notation
+        return view('comics.index', $data);   // index si trova nella cartella comics. Con view devo usare la dot.notation
     }
 
     /**
@@ -48,7 +48,7 @@ class ComicController extends Controller
         $newComic = new Comic();
         
         //metodo senza mass assignment
-        
+
         // $newComic->title = $formData['title'];  /* uso le parentesi quadre perchè ho un array associativo */
         // $newComic->description = $formData['description'];
         // $newComic->thumb = $formData['thumb'];
@@ -58,7 +58,7 @@ class ComicController extends Controller
         // $newComic->type = $formData['type'];
         // $newComic->save();
 
-        /* metodo con mass assignment, le colonne vengono autorizzate nel model */
+        /* metodo con mass assignment, (si usano solo con dati che non possono essere rischiosi) le colonne vengono autorizzate nel model */
         $newComic->fill($formData);
         $newComic->save();
 
@@ -92,8 +92,16 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        $comic = Comic::findOrFail($id);
+        //dd($comic);
+
+        $data = [
+            'comic' => $comic
+        ];
+
+
+        return view('comics.edit', $data);
     }
 
     /**
