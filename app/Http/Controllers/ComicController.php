@@ -132,7 +132,9 @@ class ComicController extends Controller
      */
     public function destroy($id)
     {
-        $comic = Comic::findOrFail($id);
-        dd('funzione destroy');
+        $comic = Comic::findOrFail($id);   // prendo l'entitá da cancellare
+        $comic->delete();                  // l'entita' viene cancellata
+
+        return redirect()->route('comics.index');   // utente reindirizzado alla index con tutti i prodotti
     }
 }
