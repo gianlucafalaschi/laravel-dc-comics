@@ -19,16 +19,18 @@
                           <li class="list-group-item">{{$comic->type}}</li>
                         </ul>
                         <div class="card-body">
-                          <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}" class="card-link btn btn-primary">Modifica prodotto</a>
+                          <div>
+                            <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}" class="card-link btn btn-primary">Modifica prodotto</a>
+                          </div>  
+                          <div>
+                            {{-- form per eliminare elemento, uso un form perche' se usassi un link normale andrebbe solo con metodo GET (che reindirizzerebbe in show) --}}
+                            <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" method="POST">
+                              @csrf   {{-- essenziale per inviare i dati in modo sicuro --}}
+                              @method('DELETE')   {{-- il method nella route list e' PUT, ma se non abbiamo un method GET dobbiamo sempre mettere sopra un method POST. Aggiungiamo PUT per inviare alla giusta route, altrimenti andremmo nella show  --}}
 
-                          {{-- form per eliminare elemento, uso un form perche' se usassi un link normale andrebbe solo con metodo GET (che reindirizzerebbe in show) --}}
-                          <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" method="POST">
-                            @csrf   {{-- essenziale per inviare i dati in modo sicuro --}}
-                            @method('DELETE')   {{-- il method nella route list e' PUT, ma se non abbiamo un method GET dobbiamo sempre mettere sopra un method POST. Aggiungiamo PUT per inviare alla giusta route, altrimenti andremmo nella show  --}}
-
-                            
-                            <button type="submit" class="btn btn-danger mt-3">Elimina prodotto</button>
-                          </form>
+                              <button type="submit" class="btn btn-danger mt-3">Elimina prodotto</button>
+                            </form>
+                          </div>
                         </div>
                     </div>
                 </div>
