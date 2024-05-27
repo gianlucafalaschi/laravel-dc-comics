@@ -22,7 +22,7 @@
                         <div class="card-body">
                           {{-- al click del link viene aperta la pagina del singolo fumetto  --}}
                           <a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="card-link">Scopri di più</a>
-                          <a href="#" class="card-link">Another link</a>
+                          <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}" class="card-link">Modifica prodotto</a>
                         </div>
                     </div>
                 </div>
