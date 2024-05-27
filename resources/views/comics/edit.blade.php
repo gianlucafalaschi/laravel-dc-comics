@@ -35,9 +35,10 @@
             </div>
             
             <div class="form-group mb-3">
-              <label for="type">Scegli un Tipo</label>
+              <label for="type">Tipo</label>
               <select class="form-control" id="type" name="type">
                 {{-- preseleziona il valore di type tramite selected --}}
+                <option value="" {{ $comic->type === '' ? 'selected' : ''}}>Scegli un'opzione</option>
                 <option {{ $comic->type === "comic book" ? 'selected' : '' }} value="comic book">Comic book</option>    {{-- la value e' il valore che verra' passato al database --}}
                 <option {{ $comic->type === "graphic novel" ? 'selected' : '' }} value="graphic novel">Graphic novel</option>
               </select>
