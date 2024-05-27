@@ -19,7 +19,7 @@
                           <li class="list-group-item">{{$comic->type}}</li>
                         </ul>
                         <div class="card-body">
-                          <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}" class="card-link">Modifica prodotto</a>
+                          <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}" class="card-link btn btn-primary">Modifica prodotto</a>
 
                           {{-- form per eliminare elemento, uso un form perche' se usassi un link normale andrebbe solo con metodo GET (che reindirizzerebbe in show) --}}
                           <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" method="POST">
