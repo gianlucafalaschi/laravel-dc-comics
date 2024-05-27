@@ -7,7 +7,7 @@
         
         <form action="{{ route('comics.update', ['comic' => $comic->id]) }}" method="POST">
             @csrf   {{-- essenziale per inviare i dati in modo sicuro --}}
-            @method('PUT')   {{-- il method nella route list e' PUT, ma se non abbiamo un method GET dobbiamo sempre mettere sopra un method POST. Aggiungiamo PUT per inviare alla giusta route  --}}
+            @method('PUT')   {{-- il method nella route list e' PUT, ma se non abbiamo un method GET dobbiamo sempre mettere sopra un method POST. Aggiungiamo PUT per inviare alla giusta route, altrimenti andremmo nella show  --}}
 
             <div class="form-group mb-3">
               <label for="title">Titolo</label>
