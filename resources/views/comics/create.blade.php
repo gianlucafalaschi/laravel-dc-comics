@@ -32,8 +32,9 @@
                 </div>
                 
                 <div class="form-group mb-3">
-                  <label for="type">Scegli un Tipo</label>
+                  <label for="type">Tipo</label>
                   <select class="form-control" id="type" name="type">
+                    <option value="" selected>Scegli un'opzione</option>
                     <option value="comic book">Comic book</option>    {{-- la value e' il valore che verra' passato al database --}}
                     <option value="graphic novel">Graphic novel</option>
                   </select>
