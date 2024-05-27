@@ -19,7 +19,7 @@
                           <li class="list-group-item">{{$comic->type}}</li>
                         </ul>
                         <div class="card-body">
-                          <a href="#" class="card-link">Card link</a>
+                          <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}" class="card-link">Modifica prodotto</a>
                           <a href="#" class="card-link">Another link</a>
                         </div>
                     </div>
