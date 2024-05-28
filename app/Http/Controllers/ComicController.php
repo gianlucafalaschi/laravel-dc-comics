@@ -40,7 +40,21 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        // validazione dei dati del form prima di proseguire con il resto del codice
+        $validated = $request->validate([
+            'title' => 'required|max:98',
+            'description' => 'required|min:5|max:2000',
+            'thumb' => 'required|max:300',
+            'price' => 'required|numeric', 
+            'series' => 'required|max:198',  
+            'sale_date' => 'required|date',  
+            'type' => 'required|max:98'
+            
+        ]);
+
+
+
         $formData = $request->all();
         
         // Creare nuova riga nel database  quando l'utente invia il form
