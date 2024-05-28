@@ -59,9 +59,12 @@
               <label for="type">Tipo</label>
               <select class="form-control" id="type" name="type">
                 {{-- preseleziona il valore di type tramite selected --}}
-                <option value="" {{ $comic->type === '' ? 'selected' : ''}}>Scegli un'opzione</option>
-                <option {{ $comic->type === "comic book" ? 'selected' : '' }} value="comic book">Comic book</option>    {{-- la value e' il valore che verra' passato al database --}}
-                <option {{ $comic->type === "graphic novel" ? 'selected' : '' }} value="graphic novel">Graphic novel</option>
+                {{-- se non ho il valore dell'old type seleziona di default $comic->type. Se questi sono vuoti applica selected  --}}
+                <option value="" {{ old('type', $comic->type) === '' ? 'selected' : ''}}>Scegli un'opzione</option>
+                {{-- se non ho il valore dell'old type seleziona di default $comic->type. Se questi sono comic book applica selected  --}}
+                <option {{ old('type', $comic->type)  === "comic book" ? 'selected' : '' }} value="comic book">Comic book</option>  {{-- la value e' il valore che verra' passato al database --}}
+                 {{-- se non ho il valore dell'old type seleziona di default $comic->type. Se questi sono graphic novel applica selected  --}} 
+                <option {{ old('type', $comic->type)  === "graphic novel" ? 'selected' : '' }} value="graphic novel">Graphic novel</option>
               </select>
             </div>
             {{-- validation error --}}
