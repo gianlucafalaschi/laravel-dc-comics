@@ -72,7 +72,7 @@ class ComicController extends Controller
 
             ]
     
-    );
+        );
 
 
 
@@ -148,6 +148,41 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {   
+
+        // validazione dei dati del form prima di proseguire con il resto del codice
+        $validated = $request->validate(
+            [
+                'title' => 'required|max:98',
+                'description' => 'required|min:5|max:2000',
+                'thumb' => 'required|max:300',
+                'price' => 'required|numeric', 
+                'series' => 'required|max:198',  
+                'sale_date' => 'required|date',  
+                'type' => 'required|max:98',  
+            ],
+
+            [
+                'title.required' => 'Aggiungi il titolo',
+                'title.max' => 'Il titolo deve essere massimo 98 caratteri',
+                'description.required' => 'Aggiungi la descrizione',
+                'description.min' => 'La descrizione deve essere minimo 5 caratteri',
+                'description.max' => 'La descrizione deve essere massimo 2000 caratteri',
+                'thumb.required' => 'Aggiungi l\'immagine',
+                'thumb.max' => 'L\'immagine deve essere massimo 300 caratteri',
+                'price.required' => 'Aggiungi il prezzo',
+                'price.numeric' => 'Il prezzo deve essere un numero',
+                'series.required' => 'Aggiungi la serie',
+                'series.max' => 'La serie deve essere massimo 198 caratteri',
+                'sale_date.required' => 'Aggiungi la data di uscita',
+                'sale_date.date' => 'La data di uscita deve essere in formato data gg/mm/aa', 
+                'type.required' => 'Scegli il tipo tra le opzioni', 
+                'type.max' => 'Il tipo deve essere massimo 98 caratteri', 
+
+            ]
+    
+        );
+
+
         $comic = Comic::findOrFail($id);
 
         $formData = $request->all();
