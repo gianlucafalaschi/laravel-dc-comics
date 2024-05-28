@@ -5,7 +5,7 @@
         <div class="container">
             <h1 class="mb-3">Crea un nuovo prodotto</h1>
             
-            {{-- messaggio di errore in caso di  validation failed --}}
+            {{-- messaggio di errore in cima al form in caso di  validation failed --}}
             {{-- @if ($errors->any())
               <div class="alert alert-danger">
                   <ul>
@@ -72,7 +72,7 @@
                     <option {{ old('type') === '' ? 'selected' : ''}} value="" >Scegli un'opzione</option>
                     {{-- se i dati del form non sono inviati e type e' comic book applica selected altrimenti no --}}
                     <option {{ old('type') === 'comic book' ? 'selected' : ''}} value="comic book">Comic book</option>    {{-- la value e' il valore che verra' passato al database --}}
-                    {{-- se i dati del form non sono inviatie e type e' graphic novel applica selected altrimenti no --}}
+                    {{-- se i dati del form non sono inviati e type e' graphic novel applica selected altrimenti no --}}
                     <option {{ old('type') === 'graphic novel' ? 'selected' : ''}} value="graphic novel">Graphic novel</option>
                   </select>
                 </div>
